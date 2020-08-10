@@ -8,7 +8,10 @@ class ArticleForm extends React.Component {
         this.state = {
             isLoading: true,
             loadingError: null,
-            article: {},
+            article: {
+                headline: "",
+                text: "",
+            },
         }
         this.articleImage = React.createRef();
     }

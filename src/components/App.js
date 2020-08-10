@@ -18,11 +18,11 @@ class App extends React.Component {
             <Router>
                 <MainNavigation />
                 <Switch>
-                    <Route exact path="/" component={MainPage} />
-                    <Route path="/article/:id" render={props => <ArticleDetails {...props} />} />
+                    <Route exact path="/" children={<MainPage />} />
+                    <Route path="/article/:id" component={ArticleDetails} />
                     <Route path="/editor" component={auth(ArticlesEditor)} />
-                    <Route path="/login" render={props => <LoginForm {...props} />} />
-                    <Route path="/registration" render={props => <RegistrationForm {...props} />} />
+                    <Route path="/login" component={LoginForm} />
+                    <Route path="/registration" component={RegistrationForm} />
                 </Switch>
             </Router>
         );
