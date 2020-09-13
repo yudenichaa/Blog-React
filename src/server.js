@@ -8,6 +8,7 @@ const multer = require("multer");
 const jsonParser = express.json();
 const cookieParser = require('cookie-parser');
 const app = express();
+require('dotenv').config();
 
 const appRoot = require('app-root-path');
 const imageFolder = "/media"
@@ -81,7 +82,7 @@ const Article = mongoose.model('Article', articleSchema);
 const User = mongoose.model('User', userSchema);
 
 mongoose.connect(
-    "mongodb://localhost:27017/blog",
+    process.env.MONGODB_URI,
     {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -89,7 +90,7 @@ mongoose.connect(
         useFindAndModify: false
     })
     .then(() => {
-        app.listen(3000, () => {
+        app.listen(process.env.PORT, () => {
             console.log("Server has started.");
         });
     })
