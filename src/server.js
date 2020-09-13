@@ -61,15 +61,11 @@ const userSchema = new Schema(
         login: {
             type: String,
             required: true,
-            minlength: 4,
-            maxlength: 16,
             unique: true,
         },
         password: {
             type: String,
             required: true,
-            minlength: 8,
-            maxlength: 16,
         },
         displayName: {
             type: String,
